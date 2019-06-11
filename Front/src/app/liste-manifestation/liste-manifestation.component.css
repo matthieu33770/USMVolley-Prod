@@ -1,0 +1,62 @@
+.manifestations{
+    font-family: Maven Pro;
+  }
+  
+  .titre {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .choix {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .match {
+    margin-right: 10px;
+  }
+
+  .entrainement {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .mat-icon {
+    font-size: 40px;
+  }
+
+  .boutons {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .tablemanifestation {
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    overflow: auto;
+  }
+
+  table {
+    width: 100%;
+}
+
+  .tableau {
+    border-spacing: 10px;
+  }
+
+  th.mat-header-cell {
+    text-align: center;
+}
+
+td {
+    text-align: center;
+}
+
+  img {
+    max-height: 35px; 
+    margin-left: 50px;
+  }

@@ -1,0 +1,25 @@
+<div class="consultationArticle">
+  <div class="titre">
+    <p>{{ consultationArticle.titreArticle }}</p>
+  </div>
+
+  <div class="contenuArticle">
+    <div class="noimage" *ngIf="!consultationArticle.photoArticle ; else Image"><img mat-card-image src="assets/photos/NoImage.jpg">
+    </div>
+
+    <div class="image">
+      <img class="img" src="{{ consultationArticle.photoArticle }}" alt="Photo de l'article">
+    </div>
+    <br>
+    <div class="contenu">
+      <p>{{ consultationArticle.contenuArticle }}</p>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="boutons">
+    <button mat-button><a routerLink="/accueil">Retour</a></button>
+  </div>
+
+</div>

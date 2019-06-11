@@ -1,0 +1,45 @@
+.equipes{
+    font-family: Maven Pro;
+  }
+  
+  .titre {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  @media only screen and (max-width: 600px) {
+  
+    .categories {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  
+    .jeunes {
+      margin-left: 10px;
+    }
+    
+    .adultes {
+      margin-left: 10px;
+    }
+  }
+
+  @media only screen and (min-width: 600px) {
+    .categories {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .jeunes {
+      width: 40%;
+      margin-left: 50px;
+    }
+    
+    .adultes {
+      width: 40%;
+      margin-left: 100px;
+    }
+  }

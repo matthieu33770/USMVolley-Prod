@@ -1,0 +1,35 @@
+<div class="inscription">
+  <div class="titre">
+    <h3 *ngIf="isEntrainement">{{ inscriptionManifestation.title | uppercase}}</h3>
+    <h3 *ngIf="!isEntrainement">{{ inscriptionManifestation.title | uppercase}} contre {{ inscriptionManifestation.adversaire }} pour l'équipe {{ inscriptionManifestation.equipe.libelleEquipe }}</h3>
+  </div>
+
+  <div class="corps">
+    <div *ngIf="isInscriptionPossible">
+      <mat-form-field>
+        <input matInput [(ngModel)]="joueur.nom">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput [(ngModel)]="joueur.prenom">
+        </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Disponibilite" [(ngModel)]="newParticipation.idDisponibilite" name="disponibilite">
+          <mat-option *ngFor="let disponibilite of disponibiliteList" [value]="disponibilite.idDisponibilite">
+            {{disponibilite.libelleDisponibilite}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div *ngIf="!isInscriptionPossible">
+      <h4>Vous ne pouvez pas vous inscrire à cet évènement.</h4>
+    </div>
+  </div>
+
+
+
+  <div class="boutons">
+    <button mat-raised-button color="primary" type="submit" (click)="onSave()" routerLink="/agenda">Enregistrer</button>
+    <button mat-raised-button color="accent" routerLink="/agenda">Retour</button>
+  </div>
+  <br>
+</div>

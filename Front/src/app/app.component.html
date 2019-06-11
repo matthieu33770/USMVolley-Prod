@@ -1,0 +1,144 @@
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>{{title}}</title>
+</head>
+
+<header>
+  <div class="maxmenu">
+    <div class="menu1">
+      <button mat-button routerLink="">Accueil</button>
+      <button *ngIf="!isLoggedin" mat-button routerLink="/saisie">Inscription</button>
+      <button mat-button routerLink="/equipes">Les Equipes</button>
+      <button mat-button routerLink="/agenda">Agenda</button>
+      <button mat-button routerLink="/lieux">Les Lieux</button>
+      <button mat-button routerLink="/partenaires">Les Partenaires</button>
+    </div>
+    <div class="menu2">
+      <button *ngIf="!isLoggedin" mat-button routerLink="/connexion">Se connecter</button>
+      <button *ngIf="isLoggedin && isLicencie" mat-button [matMenuTriggerFor]="menuL">Licencié</button>
+        <mat-menu #menuL="matMenu">
+          <button mat-menu-item routerLink="/saisie">Mon Profil</button>
+          <button mat-menu-item routerLink="/inscriptionsmultiple">Mettre à jour sa participation</button>
+          <button mat-menu-item type="submit" (click)="onDeconnect()">Se déconnecter</button>
+        </mat-menu>
+      <button *ngIf="isLoggedin && isCapitaine" mat-button [matMenuTriggerFor]="menuC">Capitaine</button>
+        <mat-menu #menuC="matMenu">
+          <button mat-menu-item routerLink="/saisie">Mon Profil</button>
+          <button mat-menu-item routerLink="/gestion/articles/redactionArticle/newArticle">Publier un Article</button>
+          <button mat-menu-item routerLink="/inscriptionsmultiple">Mettre à jour sa participation</button>
+          <button mat-menu-item routerLink="/manifestations">Gérer les Manifestations</button>
+          <button mat-menu-item routerLink="/envoyerMail">Envoyer un Mail</button>
+          <button mat-menu-item routerLink="/gestion">Gérer les Données</button>
+          <button mat-menu-item type="submit" (click)="onDeconnect()">Se déconnecter</button>
+        </mat-menu>
+      <button *ngIf="isLoggedin && isBureau" mat-button [matMenuTriggerFor]="menuB">Bureau</button>
+        <mat-menu #menuB="matMenu">
+          <button mat-menu-item routerLink="/saisie">Mon Profil</button>
+          <button mat-menu-item routerLink="/gestion/articles/redactionArticle/newArticle">Publier un Article</button>
+          <button mat-menu-item routerLink="/inscriptionsmultiple">Mettre à jour sa participation</button>
+          <button mat-menu-item routerLink="/manifestations">Gérer les Manifestations</button>
+          <button mat-menu-item routerLink="/envoyerMail">Envoyer un Mail</button>
+          <button mat-menu-item routerLink="/gestion">Gérer les Données</button>
+          <button mat-menu-item type="submit" (click)="onDeconnect()">Se déconnecter</button>
+      </mat-menu>
+    </div>
+  </div>
+  <br>
+  <div class="titre">
+    <img class="beach" src="assets/icone/beach1.png">
+    <img class="usm" src="assets/icone/USM logo simple coeur2.png" routerLink="">
+    <img class="volley" src="assets/icone/volley1.png">
+  </div>
+ 
+  <div class="minmenu">
+    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="">Accueil</button>
+      <button mat-menu-item routerLink="/equipes">Les Equipes</button>
+      <button mat-menu-item routerLink="/agenda">Agenda</button>
+      <button mat-menu-item routerLink="/lieux">Les Lieux</button>
+      <button *ngIf="!isLoggedin" mat-flat-button routerLink="/saisie">Inscription</button>
+      <button *ngIf="isLoggedin" mat-flat-button routerLink="/saisie">Renouvellement</button>
+      <button mat-menu-item routerLink="/partenaires">Les Partenaires</button>
+
+      <button *ngIf="!isLoggedin" mat-flat-button routerLink="/connexion">Connexion</button>
+      <button *ngIf="isLoggedin && isLicencie" mat-menu-item [matMenuTriggerFor]="menuL">Licencié</button>
+        <mat-menu #menuL="matMenu">
+          <button mat-menu-item routerLink="/saisie">Mon Profil</button>
+          <button mat-menu-item routerLink="/inscriptionsmultiple">Mettre à jour sa participation</button>
+          <button mat-menu-item type="submit" (click)="onDeconnect()">Se déconnecter</button>
+        </mat-menu>
+        <button *ngIf="isLoggedin && isCapitaine" mat-menu-item [matMenuTriggerFor]="menuC">Bureau</button>
+        <mat-menu #menuC="matMenu">
+          <button mat-menu-item routerLink="/saisie">Mon Profil</button>
+          <button mat-menu-item routerLink="/gestion/articles/redactionArticle/newArticle">Publier un Article</button>
+          <button mat-menu-item routerLink="/inscriptionsmultiple">Mettre à jour sa participation</button>
+          <button mat-menu-item routerLink="/manifestations">Gérer une Manifestation</button>
+          <button mat-menu-item routerLink="/envoyerMail">Envoyer un Mail</button>
+          <button mat-menu-item routerLink="/gestion">Gérer les Données</button>
+          <button mat-menu-item type="submit" (click)="onDeconnect()">Se déconnecter</button>
+        </mat-menu>  
+      <button *ngIf="isLoggedin && isBureau" mat-menu-item [matMenuTriggerFor]="menuB">Bureau</button>
+        <mat-menu #menuB="matMenu">
+          <button mat-menu-item routerLink="/saisie">Mon Profil</button>
+          <button mat-menu-item routerLink="/gestion/articles/redactionArticle/newArticle">Publier un Article</button>
+          <button mat-menu-item routerLink="/inscriptionsmultiple">Mettre à jour sa participation</button>
+          <button mat-menu-item routerLink="/manifestations">Gérer une Manifestation</button>
+          <button mat-menu-item routerLink="/envoyerMail">Envoyer un Mail</button>
+          <button mat-menu-item routerLink="/gestion">Gérer les Données</button>
+          <button mat-menu-item type="submit" (click)="onDeconnect()">Se déconnecter</button>
+        </mat-menu>
+    </mat-menu>
+  </div>
+</header>
+
+<router-outlet></router-outlet>
+
+<footer>
+  <div class="maxcontact">
+    <div class="contacter">
+      <p>Nous contacter</p>
+    </div>
+    <!-- <div class="lieux">
+      <p>Où nous trouver :</p>
+    </div> -->
+    <div class="salles">
+      <p>Gymnase du Collège Aliénor d'Aquitaine</p>
+      <p>22 route du Martinet - 33770 SALLES</p>
+    </div>
+    <div class="mios">
+      <p>Gymnase de Mios</p>
+      <p>Allée de la Plage - 33380 MIOS</p>
+    </div>
+  </div>
+
+  <div class="mincontact">
+      <button mat-button [matMenuTriggerFor]="contact">Nous contacter</button>
+
+        <mat-menu #contact="matMenu">
+          <button mat-menu-item [matMenuTriggerFor]="president">Bruno MENAGER</button>
+          <button mat-menu-item [matMenuTriggerFor]="entraineur1">Dominique BRANDELON</button>
+          <button mat-menu-item [matMenuTriggerFor]="entraineur2">Jean Noel BERTHEUIL</button>
+          <button mat-menu-item [matMenuTriggerFor]="entraineur3">Matthieu RAES</button>
+        </mat-menu>
+
+        <mat-menu #president="matMenu">
+          <button mat-menu-item><a href="mailto:unionsallesmios.volley@gmail.com">unionsallesmios.volley@gmail.com</a></button>
+        </mat-menu>
+
+        <mat-menu #entraineur1="matMenu">
+          <button mat-menu-item>M15F - M17F - M20F</button>
+        </mat-menu>
+
+        <mat-menu #entraineur2="matMenu">
+          <button mat-menu-item>M11 - M13F</button>
+        </mat-menu>
+
+        <mat-menu #entraineur3="matMenu">
+          <button mat-menu-item>M17G - Adultes Débutants</button>
+        </mat-menu>
+  </div>
+</footer>
